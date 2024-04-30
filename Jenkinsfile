@@ -5,7 +5,7 @@ pipeline {
         SNYK_CREDENTIALS = credentials('SnykToken')
     }
     stages {
-       // stage('Secret Scanning Using Trufflehog') {
+        stage('Secret Scanning Using Trufflehog') {
             agent {
                 docker {
                     image 'trufflesecurity/trufflehog:latest'
@@ -19,7 +19,7 @@ pipeline {
                 sh 'cat trufflehog-scan-result.json'
                 archiveArtifacts artifacts: 'trufflehog-scan-result.json'
             }
-       //}
+        }
         stage('Build') {
             agent {
               docker {
