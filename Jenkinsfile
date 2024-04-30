@@ -2,7 +2,7 @@ pipeline {
     agent none
     environment {
         DOCKERHUB_CREDENTIALS = credentials('DockerLogin')
-        //SNYK_CREDENTIALS = credentials('SnykToken')
+        SNYK_CREDENTIALS = credentials('SnykToken')
     }
     stages {
         stage('Secret Scanning Using Trufflehog') {
